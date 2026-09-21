@@ -7,8 +7,9 @@ public class ToDoList {
     private List<String> completedTasks = new ArrayList<>();
 
     public void addTask(String task) {
-        if (task != null && !task.trim().isEmpty() && !tasks.contains(task))
+        if (task != null && !task.trim().isEmpty() && !tasks.contains(task)) {
             tasks.add(task);
+        }
     }
 
     public List<String> getTasks() {
