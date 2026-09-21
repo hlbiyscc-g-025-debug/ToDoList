@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -93,6 +96,19 @@ class ToDoListTest {
 
         // Act
         todoList.addTask("   ");
+
+        // Assert
+        assertEquals(0, todoList.getTasks().size());
+    }
+    @ParameterizedTest
+    @ValueSource(strings = {"", "   ", "     "})
+    void shouldNotAddInvalidTasks(String task) {
+
+        // Arrange
+        ToDoList todoList = new ToDoList();
+
+        // Act
+        todoList.addTask(task);
 
         // Assert
         assertEquals(0, todoList.getTasks().size());
