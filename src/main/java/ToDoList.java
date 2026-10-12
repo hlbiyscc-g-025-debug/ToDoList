@@ -19,6 +19,7 @@ public class ToDoList {
     }
     public void deleteTask(String task) {
         tasks.remove(task);
+        completedTasks.remove(task);
     }
     public void editTask(String oldTask, String newTask) {
         int index = tasks.indexOf(oldTask);

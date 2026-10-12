@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -148,5 +149,17 @@ class ToDoListTest {
         assertEquals(2, todoList.getTasks().size());
         assertTrue(todoList.getTasks().contains("Study QA"));
         assertTrue(todoList.getTasks().contains("Complete assignment"));
+    }
+    @Test
+    void shouldRemoveCompletedTaskWhenDeleted() {
+        ToDoList todoList = new ToDoList();
+
+        todoList.addTask("Study QA");
+        todoList.completeTask("Study QA");
+
+        todoList.deleteTask("Study QA");
+
+        assertFalse(todoList.getTasks().contains("Study QA"));
+        assertFalse(todoList.getCompletedTasks().contains("Study QA"));
     }
 }
