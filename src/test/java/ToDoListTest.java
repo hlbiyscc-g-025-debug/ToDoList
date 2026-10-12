@@ -136,4 +136,17 @@ class ToDoListTest {
         
         assertEquals(1, todoList.getCompletedTasks().size());
     }
+    @Test
+    void shouldNotEditTaskToDuplicateName() {
+        ToDoList todoList = new ToDoList();
+
+        todoList.addTask("Study QA");
+        todoList.addTask("Complete assignment");
+
+        todoList.editTask("Complete assignment", "Study QA");
+
+        assertEquals(2, todoList.getTasks().size());
+        assertTrue(todoList.getTasks().contains("Study QA"));
+        assertTrue(todoList.getTasks().contains("Complete assignment"));
+    }
 }

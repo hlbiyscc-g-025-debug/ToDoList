@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class ToDoList {
 
     private List<String> tasks = new ArrayList<>();
@@ -21,7 +23,7 @@ public class ToDoList {
     public void editTask(String oldTask, String newTask) {
         int index = tasks.indexOf(oldTask);
 
-        if (index != -1 && newTask != null && !newTask.trim().isEmpty()) {
+        if (index != -1 && newTask != null && !newTask.trim().isEmpty()  && (!tasks.contains(newTask) || oldTask.equals(newTask))) {
             tasks.set(index, newTask);
         }
     }
