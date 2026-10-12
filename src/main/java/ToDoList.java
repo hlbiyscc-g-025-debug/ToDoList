@@ -26,12 +26,15 @@ public class ToDoList {
         }
     }
     public void completeTask(String task) {
-        if (tasks.contains(task)) {
+        if (tasks.contains(task) && !completedTasks.contains(task)) {
             completedTasks.add(task);
         }
     }
 
     public boolean isCompleted(String task) {
         return completedTasks.contains(task);
+    }
+    public List<String> getCompletedTasks() {
+        return completedTasks;
     }
 }

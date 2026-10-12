@@ -123,4 +123,17 @@ class ToDoListTest {
         
         assertEquals("Study QA", todoList.getTasks().get(0));
     }
+    @Test
+    void shouldNotCompleteTaskTwice() {
+        
+        ToDoList todoList = new ToDoList();
+        todoList.addTask("Study QA");
+
+        
+        todoList.completeTask("Study QA");
+        todoList.completeTask("Study QA");
+
+        
+        assertEquals(1, todoList.getCompletedTasks().size());
+    }
 }
