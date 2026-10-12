@@ -21,7 +21,7 @@ public class ToDoList {
     public void editTask(String oldTask, String newTask) {
         int index = tasks.indexOf(oldTask);
 
-        if (index != -1) {
+        if (index != -1 && newTask != null && !newTask.trim().isEmpty()) {
             tasks.set(index, newTask);
         }
     }
