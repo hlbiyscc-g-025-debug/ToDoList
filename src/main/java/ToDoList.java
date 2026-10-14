@@ -1,7 +1,9 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-
+import java.util.Scanner;
 
 public class ToDoList {
 
@@ -57,5 +59,59 @@ public class ToDoList {
     }
     public List<String> getCompletedTasks() {
         return completedTasks;
+    }
+    public void saveTasks() {
+    try {
+        FileWriter writer = new FileWriter("tasks.txt");
+
+        for (String task : tasks) {
+            writer.write(task + "|" + completedTasks.contains(task) + "\n");
+        }
+
+        writer.close();
+        System.out.println("Tasks saved successfully.");
+
+    } catch (IOException error) {
+        System.out.println("Could not save tasks: " + error.getMessage());
+    }
+    }
+
+    public void loadTasks() {
+        File file = new File("tasks.txt");
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try {
+            Scanner fileScanner = new Scanner(file);
+
+            tasks.clear();
+            completedTasks.clear();
+
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                String[] parts = line.split("\\|", 2);
+
+                if (parts.length == 2) {
+                    String task = parts[0];
+                    boolean completed = Boolean.parseBoolean(parts[1]);
+
+                    if (!task.trim().isEmpty() && !tasks.contains(task)) {
+                        tasks.add(task);
+
+                        if (completed) {
+                            completedTasks.add(task);
+                        }
+                    }
+                }
+            }
+
+            fileScanner.close();
+            System.out.println("Tasks loaded successfully.");
+
+        } catch (IOException error) {
+            System.out.println("Could not load tasks: " + error.getMessage());
+        }
     }
 }

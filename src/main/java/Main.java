@@ -7,6 +7,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ToDoList todoList = new ToDoList();
 
+        todoList.loadTasks();
+
         boolean running = true;
 
         System.out.println("================================");
@@ -34,6 +36,7 @@ public class Main {
                     String newTask = scanner.nextLine();
 
                     todoList.addTask(newTask);
+                    todoList.saveTasks();
                     break;
 
                 case "2":
@@ -53,6 +56,7 @@ public class Main {
                     String taskToComplete = scanner.nextLine();
 
                     todoList.completeTask(taskToComplete);
+                    todoList.saveTasks();
                     break;
 
                 case "4":
@@ -63,6 +67,7 @@ public class Main {
                     String updatedTask = scanner.nextLine();
 
                     todoList.editTask(oldTask, updatedTask);
+                    todoList.saveTasks();
                     break;
 
                 case "5":
@@ -70,6 +75,7 @@ public class Main {
                     String taskToDelete = scanner.nextLine();
 
                     todoList.deleteTask(taskToDelete);
+                    todoList.saveTasks();
                     break;
 
                 case "6":
@@ -86,7 +92,7 @@ public class Main {
 
                 case "7":
                     running = false;
-                    System.out.println("Thank you for using ToDoList!");
+                    System.out.println("Thank you for using our ToDoList!");
                     break;
 
                 default:

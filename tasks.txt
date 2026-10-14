@@ -1,0 +1,2 @@
+Groceries|true
+Study session |false
