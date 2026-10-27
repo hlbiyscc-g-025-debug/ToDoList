@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="ToDoListTest" time="0.177" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="ToDoListTest" time="0.117" tests="18" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/wtc18/student_work/ToDoList/target/surefire/surefirebooter-20261027094856315_3.jar /home/wtc18/student_work/ToDoList/target/surefire 2026-10-27T09-48-56_261-jvmRun1 surefire-20261027094856315_1tmp surefire_0-20261027094856315_2tmp"/>
+    <property name="sun.java.command" value="/home/wtc18/student_work/ToDoList/target/surefire/surefirebooter-20261027101709477_3.jar /home/wtc18/student_work/ToDoList/target/surefire 2026-10-27T10-17-09_434-jvmRun1 surefire-20261027101709477_1tmp surefire_0-20261027101709477_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/wtc18/student_work/ToDoList/target/test-classes:/home/wtc18/student_work/ToDoList/target/classes:/home/wtc18/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.0/junit-jupiter-5.11.0.jar:/home/wtc18/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/home/wtc18/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/wtc18/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/home/wtc18/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/wtc18/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/home/wtc18/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.0/junit-jupiter-engine-5.11.0.jar:/home/wtc18/.m2/repository/org/junit/platform/junit-platform-engine/1.11.0/junit-platform-engine-1.11.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/wtc18/student_work/ToDoList/target/surefire/surefirebooter-20261027094856315_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/wtc18/student_work/ToDoList/target/surefire/surefirebooter-20261027101709477_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.12.1+1-1-24.04.4-Ubuntu"/>
     <property name="user.name" value="wtc18"/>
@@ -53,15 +53,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAddTask" classname="ToDoListTest" time="0.026">
+  <testcase name="shouldAddTask" classname="ToDoListTest" time="0.018">
     <system-out><![CDATA[Task added: Study QA
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotAddInvalidTasks(String)[1]" classname="ToDoListTest" time="0.005">
+  <testcase name="shouldHandleMissingFileWhenLoadingTasks" classname="ToDoListTest" time="0.001"/>
+  <testcase name="shouldNotAddInvalidTasks(String)[1]" classname="ToDoListTest" time="0.006">
     <system-out><![CDATA[Task could not be added.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotAddInvalidTasks(String)[2]" classname="ToDoListTest" time="0.0">
+  <testcase name="shouldNotAddInvalidTasks(String)[2]" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task could not be added.
 ]]></system-out>
   </testcase>
@@ -69,55 +70,55 @@
     <system-out><![CDATA[Task could not be added.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotAddEmptyTask" classname="ToDoListTest" time="0.001">
+  <testcase name="shouldNotAddEmptyTask" classname="ToDoListTest" time="0.0">
     <system-out><![CDATA[Task could not be added.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldDeleteTask" classname="ToDoListTest" time="0.001">
+  <testcase name="shouldDeleteTask" classname="ToDoListTest" time="0.0">
     <system-out><![CDATA[Task added: Study QA
 Task deleted: Study QA
 ]]></system-out>
   </testcase>
-  <testcase name="shouldEditTask" classname="ToDoListTest" time="0.014">
+  <testcase name="shouldEditTask" classname="ToDoListTest" time="0.006">
     <system-out><![CDATA[Task added: Study QA
 Task updated: Study QA -> Study Quality Assurance
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotAddDuplicateTask" classname="ToDoListTest" time="0.003">
+  <testcase name="shouldNotAddDuplicateTask" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task added: Study QA
 Task could not be added.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotCompleteTaskTwice" classname="ToDoListTest" time="0.002">
+  <testcase name="shouldNotCompleteTaskTwice" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task added: Study QA
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotEditTaskToEmptyName" classname="ToDoListTest" time="0.002">
+  <testcase name="shouldNotEditTaskToEmptyName" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task added: Study QA
 Task could not be edited.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldCompleteTask" classname="ToDoListTest" time="0.003">
+  <testcase name="shouldCompleteTask" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task added: Study QA
 ]]></system-out>
   </testcase>
-  <testcase name="shouldNotCompleteTaskThatDoesNotExist" classname="ToDoListTest" time="0.003"/>
-  <testcase name="shouldNotEditTaskToDuplicateName" classname="ToDoListTest" time="0.003">
+  <testcase name="shouldNotCompleteTaskThatDoesNotExist" classname="ToDoListTest" time="0.001"/>
+  <testcase name="shouldNotEditTaskToDuplicateName" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task added: Study QA
 Task added: Complete assignment
 Task could not be edited.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldLoadTasksFromFile" classname="ToDoListTest" time="0.024">
+  <testcase name="shouldLoadTasksFromFile" classname="ToDoListTest" time="0.014">
     <system-out><![CDATA[Tasks loaded successfully.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldSaveTasksToFile" classname="ToDoListTest" time="0.019">
+  <testcase name="shouldSaveTasksToFile" classname="ToDoListTest" time="0.016">
     <system-out><![CDATA[Task added: Study QA
 Tasks saved successfully.
 ]]></system-out>
   </testcase>
-  <testcase name="shouldRemoveCompletedTaskWhenDeleted" classname="ToDoListTest" time="0.002">
+  <testcase name="shouldRemoveCompletedTaskWhenDeleted" classname="ToDoListTest" time="0.001">
     <system-out><![CDATA[Task added: Study QA
 Task deleted: Study QA
 ]]></system-out>

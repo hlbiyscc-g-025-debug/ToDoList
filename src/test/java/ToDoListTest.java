@@ -206,4 +206,13 @@ class ToDoListTest {
         assertTrue(todoList.isCompleted("Study QA"));
         assertFalse(todoList.isCompleted("Complete assignment"));
     }
+    @Test
+    void shouldHandleMissingFileWhenLoadingTasks() {
+        ToDoList todoList = new ToDoList("missing-tasks.txt");
+
+        todoList.loadTasks();
+
+        assertTrue(todoList.getTasks().isEmpty());
+        assertTrue(todoList.getCompletedTasks().isEmpty());
+    }
 }
