@@ -215,4 +215,16 @@ class ToDoListTest {
         assertTrue(todoList.getTasks().isEmpty());
         assertTrue(todoList.getCompletedTasks().isEmpty());
     }
+    @Test
+    void shouldSaveEmptyTaskList() throws IOException {
+        ToDoList todoList = new ToDoList("test-tasks.txt");
+
+        todoList.saveTasks();
+
+        String savedData = Files.readString(
+                new File("test-tasks.txt").toPath()
+        );
+
+        assertTrue(savedData.isEmpty());
+    }
 }
