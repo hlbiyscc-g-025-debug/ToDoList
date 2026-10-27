@@ -6,6 +6,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ToDoList {
+    private File file = new File("tasks.txt");
+    public ToDoList() {
+
+    }
+    public ToDoList(String fileName) {
+        file = new File(fileName);
+    }
 
     private List<String> tasks = new ArrayList<>();
     private List<String> completedTasks = new ArrayList<>();
@@ -62,7 +69,7 @@ public class ToDoList {
     }
     public void saveTasks() {
     try {
-        FileWriter writer = new FileWriter("tasks.txt");
+        FileWriter writer = new FileWriter(file);
 
         for (String task : tasks) {
             writer.write(task + "|" + completedTasks.contains(task) + "\n");
@@ -77,7 +84,7 @@ public class ToDoList {
     }
 
     public void loadTasks() {
-        File file = new File("tasks.txt");
+        File file = this.file;
 
         if (!file.exists()) {
             return;

@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -161,5 +166,44 @@ class ToDoListTest {
 
         assertFalse(todoList.getTasks().contains("Study QA"));
         assertFalse(todoList.getCompletedTasks().contains("Study QA"));
+    }
+        @AfterEach
+    void cleanUp() throws IOException {
+        Files.deleteIfExists(new File("test-tasks.txt").toPath());
+    }
+
+    @Test
+    void shouldSaveTasksToFile() throws IOException {
+        ToDoList todoList = new ToDoList("test-tasks.txt");
+
+        todoList.addTask("Study QA");
+        todoList.completeTask("Study QA");
+
+        todoList.saveTasks();
+
+        String savedData = Files.readString(
+                new File("test-tasks.txt").toPath()
+        );
+
+        assertTrue(savedData.contains("Study QA|true"));
+    }
+
+    @Test
+    void shouldLoadTasksFromFile() throws IOException {
+        File testFile = new File("test-tasks.txt");
+
+        Files.writeString(
+                testFile.toPath(),
+                "Study QA|true\nComplete assignment|false\n"
+        );
+
+        ToDoList todoList = new ToDoList("test-tasks.txt");
+
+        todoList.loadTasks();
+
+        assertTrue(todoList.getTasks().contains("Study QA"));
+        assertTrue(todoList.getTasks().contains("Complete assignment"));
+        assertTrue(todoList.isCompleted("Study QA"));
+        assertFalse(todoList.isCompleted("Complete assignment"));
     }
 }
