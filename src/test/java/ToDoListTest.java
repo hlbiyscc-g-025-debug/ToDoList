@@ -227,4 +227,22 @@ class ToDoListTest {
 
         assertTrue(savedData.isEmpty());
     }
+    @Test
+    void shouldNotLoadDuplicateTasks() throws IOException {
+        File testFile = new File("test-tasks.txt");
+
+        Files.writeString(
+                testFile.toPath(),
+                "Study QA|true\nStudy QA|false\nComplete assignment|false\n"
+        );
+
+        ToDoList todoList = new ToDoList("test-tasks.txt");
+
+        todoList.loadTasks();
+
+        assertEquals(2, todoList.getTasks().size());
+        assertEquals(1, todoList.getTasks().stream()
+                .filter(task -> task.equals("Study QA"))
+                .count());
+    }
 }
